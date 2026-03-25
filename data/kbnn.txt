@@ -1,0 +1,387 @@
+Ban Quản lý hệ thống thanh toán	0002	Hà Nội
+Kho bạc Nhà nước - Ban Giao dịch	0003	Hà Nội
+Ban Kế toán Nhà nước	0004	Hà Nội
+Kho bạc Nhà nước Khu vực I	0011	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 1 	0012	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 3 	0013	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 2 	0014	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 6 	0016	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 10 	0017	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 11 	0020	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 5 	0022	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 9 	0023	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 7 	0024	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 8 	0025	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 4 	0026	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 13 	0027	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 16 	0028	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 14 	0033	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 17 	0035	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 12 	0038	Hà Nội
+Kho bạc Nhà nước Khu vực I - Phòng Giao dịch số 15 	0039	Hà Nội
+Kho bạc Nhà nước Khu vực II	0111	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 10 	0112	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 9 	0114	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 6 	0120	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 7 	0122	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 3 	0127	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 2 	0128	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 8 	0130	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 4 	0132	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 5 	0134	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 1 	0136	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 11 	0137	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 12 	0138	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 13 	0139	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 14 	0140	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 15 	0141	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 16 	0142	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 17 	0143	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 18 	0144	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 19 	0145	Hồ Chí Minh
+Kho bạc Nhà nước Khu vực II - Phòng Giao dịch số 20 	0146	Hồ Chí Minh
+Kho bạc Nhà nước khu vực III - Phòng Kế toán Nhà nước	0061	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 1 	0064	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 2 	0070	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 4 	0071	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 3 	0072	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 5 	0077	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 6 	0078	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 7 	0079	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 8 	0080	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 9 	0081	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 10 	0082	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 11 	0083	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng nghiệp vụ 2	2811	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 14 	2812	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 13 	2813	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 16 	2814	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 15 	2815	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 17 	2818	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 18 	2823	Hải Phòng
+Kho bạc Nhà nước Khu vực III - Phòng Giao dịch số 12 	2827	Hải Phòng
+Kho bạc Nhà nước Khu vực IV	0411	Hưng Yên
+Kho bạc Nhà nước Khu vực IV - Phòng Giao dịch số 2 	0412	Hưng Yên
+Kho bạc Nhà nước Khu vực IV - Phòng Giao dịch số 1 	0415	Hưng Yên
+Kho bạc Nhà nước Khu vực IV - Phòng Giao dịch số 3 	0422	Hưng Yên
+Kho bạc Nhà nước Khu vực IV - Phòng Giao dịch số 4 	0423	Hưng Yên
+Kho bạc Nhà nước Khu vực IV - Phòng Giao dịch số 5 	0424	Hưng Yên
+Kho bạc Nhà nước Khu vực IV - Phòng Giao dịch số 6 	0425	Hưng Yên
+Kho bạc Nhà nước Khu vực V	1311	Ninh Bình
+Kho bạc Nhà nước Khu vực V - Phòng Giao dịch số 2 	1312	Ninh Bình
+Kho bạc Nhà nước Khu vực V - Phòng Giao dịch số 1 	1315	Ninh Bình
+Kho bạc Nhà nước Khu vực V - Phòng Giao dịch số 3 	1316	Ninh Bình
+Kho bạc Nhà nước Khu vực V - Phòng Giao dịch số 4 	1321	Ninh Bình
+Kho bạc Nhà nước Khu vực V - Phòng Giao dịch số 5 	1322	Ninh Bình
+Kho bạc Nhà nước Khu vực V - Phòng Giao dịch số 6 	1323	Ninh Bình
+Kho bạc Nhà nước Khu vực V - Phòng Giao dịch số 7 	1324	Ninh Bình
+Kho bạc Nhà nước Khu vực V - Phòng Giao dịch số 8 	1325	Ninh Bình
+Kho bạc Nhà nước Khu vực V - Phòng Giao dịch số 9 	1326	Ninh Bình
+Kho bạc Nhà nước Khu vực V - Phòng Giao dịch số 10 	1327	Ninh Bình
+Kho bạc Nhà nước khu vực VI - Phòng Kế toán Nhà nước	1161	Bắc Ninh
+Kho bạc Nhà nước Khu vực VI - Phòng Giao dịch số 1 	1167	Bắc Ninh
+Kho bạc Nhà nước Khu vực VI - Phòng Giao dịch số 2 	1170	Bắc Ninh
+Kho bạc Nhà nước Khu vực VI - Phòng Giao dịch số 3 	1172	Bắc Ninh
+Kho bạc Nhà nước Khu vực VI - Phòng Giao dịch số 4 	1173	Bắc Ninh
+Kho bạc Nhà nước Khu vực VI - Phòng Giao dịch số 5 	1174	Bắc Ninh
+Kho bạc Nhà nước Khu vực VI - Phòng Giao dịch số 6 	1175	Bắc Ninh
+Kho bạc Nhà nước Khu vực VI - Phòng Nghiệp vụ 2	2411	Bắc Ninh
+Kho bạc Nhà nước Khu vực VI - Phòng Giao dịch số 7 	2412	Bắc Ninh
+Kho bạc Nhà nước Khu vực VI - Phòng Giao dịch số 10 	2413	Bắc Ninh
+Kho bạc Nhà nước Khu vực VI - Phòng Giao dịch số 9 	2415	Bắc Ninh
+Kho bạc Nhà nước Khu vực VI - Phòng Giao dịch số 8 	2420	Bắc Ninh
+Kho bạc Nhà nước khu vực VII - Phòng Kế toán Nhà nước	2261	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Giao dịch số 3 	2264	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Giao dịch số 2 	2266	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Giao dịch số 1 	2267	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Giao dịch số 4 	2271	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Giao dịch số 5 	2272	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Giao dịch số 6 	2273	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Giao dịch số 7 	2274	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Giao dịch số 8 	2275	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Nghiệp vụ 2	2361	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Giao dịch số 15 	2363	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Giao dịch số 12 	2364	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Giao dịch số 9 	2365	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Giao dịch số 11 	2366	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Giao dịch số 14 	2367	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Giao dịch số 10 	2368	Thái Nguyên
+Kho bạc Nhà nước Khu vực VII - Phòng Giao dịch số 13 	2370	Thái Nguyên
+Kho bạc Nhà nước khu vực VIII - Phòng Kế toán Nhà nước	1261	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 1 	1262	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 4 	1263	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 5 	1264	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 6 	1265	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 2 	1267	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 3 	1268	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 7 	1275	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 8 	1276	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 9 	1277	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 10 	1278	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 11 	1279	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 12 	1280	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 13 	1281	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 14 	1282	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 15 	1283	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 16 	1284	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Nghiệp vụ 2	2461	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 19 	2462	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 17 	2465	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 18 	2466	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 20 	2470	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 21 	2471	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 22 	2472	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 23 	2473	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 24 	2474	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 25 	2475	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 26 	2476	Phú Thọ
+Kho bạc Nhà nước Khu vực VIII - Phòng Giao dịch số 27 	2477	Phú Thọ
+Kho bạc Nhà nước khu vực IX - Phòng Kế toán Nhà nước	2561	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Giao dịch số 4 	2564	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Giao dịch số 2 	2566	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Giao dịch số 3 	2568	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Giao dịch số 1 	2569	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Giao dịch số 5 	2572	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Giao dịch số 6 	2573	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Giao dịch số 7 	2574	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Giao dịch số 8 	2575	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Giao dịch số 9 	2576	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Nghiệp vụ 2	3161	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Giao dịch số 15 	3162	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Giao dịch số 12 	3163	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Giao dịch số 14 	3164	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Giao dịch số 11 	3165	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Giao dịch số 10 	3167	Lào Cai
+Kho bạc Nhà nước Khu vực IX - Phòng Giao dịch số 13 	3168	Lào Cai
+Kho bạc Nhà nước khu vực X - Phòng Kế toán Nhà nước	2761	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Giao dịch số 6 	2762	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Giao dịch số 1 	2763	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Giao dịch số 5 	2764	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Giao dịch số 2 	2766	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Giao dịch số 4 	2768	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Giao dịch số 7 	2769	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Giao dịch số 3 	2771	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Nghiệp vụ 2	2711	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Giao dịch số 12 	2713	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Giao dịch số 10 	2714	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Giao dịch số 9 	2715	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Giao dịch số 8 	2716	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Giao dịch số 13 	2717	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Giao dịch số 14 	2718	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Giao dịch số 15 	2719	Điện Biên
+Kho bạc Nhà nước Khu vực X - Phòng Giao dịch số 11 	2721	Điện Biên
+Kho bạc Nhà nước khu vực XI - Phòng Kế toán Nhà nước	1361	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 10 	1367	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 6 	1368	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 12 	1370	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 8 	1372	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 7 	1374	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 9 	1376	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 4 	1379	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 3 	1380	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 2 	1381	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 1 	1382	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 11 	1383	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 13 	1384	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 5 	1386	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 14 	1389	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Nghiệp vụ 2	1411	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 17 	1412	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 16 	1415	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 18 	1417	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 22 	1419	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 19 	1420	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 25 	1423	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 23 	1425	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 27 	1426	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 26 	1427	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 24 	1428	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 21 	1431	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 20 	1432	Thanh Hoá
+Kho bạc Nhà nước Khu vực XI - Phòng Giao dịch số 15 	1434	Thanh Hoá
+Kho bạc Nhà nước khu vực XII - Phòng Kế toán Nhà nước	1461	Hà Tĩnh
+Kho bạc Nhà nước Khu vực XII - Phòng Giao dịch số 3 	1462	Hà Tĩnh
+Kho bạc Nhà nước Khu vực XII - Phòng Giao dịch số 4 	1463	Hà Tĩnh
+Kho bạc Nhà nước Khu vực XII - Phòng Giao dịch số 1 	1469	Hà Tĩnh
+Kho bạc Nhà nước Khu vực XII - Phòng Giao dịch số 2 	1470	Hà Tĩnh
+Kho bạc Nhà nước Khu vực XII - Phòng Nghiệp vụ 2	1511	Hà Tĩnh
+Kho bạc Nhà nước Khu vực XII - Phòng Giao dịch số 5 	1513	Hà Tĩnh
+Kho bạc Nhà nước Khu vực XII - Phòng Giao dịch số 7 	1515	Hà Tĩnh
+Kho bạc Nhà nước Khu vực XII - Phòng Giao dịch số 8 	1516	Hà Tĩnh
+Kho bạc Nhà nước Khu vực XII - Phòng Giao dịch số 6 	1519	Hà Tĩnh
+Kho bạc Nhà nước Khu vực XII - Phòng Giao dịch số 9 	1521	Hà Tĩnh
+Kho bạc Nhà nước Khu vực XII - Phòng Giao dịch số 10 	1522	Hà Tĩnh
+Kho bạc Nhà nước Khu vực XII - Phòng Giao dịch số 11 	1523	Hà Tĩnh
+Kho bạc Nhà nước Khu vực XII - Phòng Giao dịch số 12 	1524	Hà Tĩnh
+Kho bạc Nhà nước Khu vực XII - Phòng Giao dịch số 13 	1525	Hà Tĩnh
+Kho bạc Nhà nước khu vực XIII - Phòng Kế toán Nhà nước	0161	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 3 	0162	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 2 	0166	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 1 	0168	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 4 	0171	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 5 	0172	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 6 	0173	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 7 	0174	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 8 	0175	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 9 	0176	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 10 	0177	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 11 	0178	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Nghiệp vụ 2	1611	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 14 	1612	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 16 	1615	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 17 	1617	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 15 	1619	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 13 	1621	Đà Nẵng
+Kho bạc Nhà nước Khu vực XIII - Phòng Giao dịch số 12 	0179	Đà Nẵng
+Kho bạc Nhà nước khu vực XIV - Phòng Kế toán Nhà nước	2061	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 1 	2063	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 2 	2067	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 3 	2070	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 4 	2071	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 5 	2072	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 6 	2073	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Nghiệp vụ 2	2961	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 11 	2963	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 12 	2966	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 14 	2970	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 8 	2971	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 9 	2973	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 13 	2975	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 10 	2976	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 7 	2977	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 15 	2978	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 16 	2979	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 17 	2980	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 18 	2981	Khánh Hoà
+Kho bạc Nhà nước Khu vực XIV - Phòng Giao dịch số 19 	2982	Khánh Hoà
+Kho bạc Nhà nước khu vực XV - Phòng Kế toán Nhà nước	2011	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 3 	2015	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 1 	2016	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 2 	2017	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 4 	2021	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 5 	2024	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 6 	2025	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 7 	2026	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 8 	2027	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 9 	2028	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 10 	2029	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 11 	2030	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 12 	2031	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 13 	2032	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 14 	2033	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 15 	2034	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Nghiệp vụ 2	2111	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 17 	2112	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 18 	2115	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 20 	2117	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 19 	2118	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 21 	2120	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 22 	2122	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 16 	2126	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 23 	2127	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 24 	2128	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 25 	2129	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 26 	2130	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 27 	2131	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 28 	2132	Gia Lai
+Kho bạc Nhà nước Khu vực XV - Phòng Giao dịch số 29 	2133	Gia Lai
+Kho bạc Nhà nước Khu vực XVI	2861	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVI - Phòng Giao dịch số 3 	2864	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVI - Phòng Giao dịch số 4 	2865	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVI - Phòng Giao dịch số 1 	2867	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVI - Phòng Giao dịch số 2 	2868	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVI - Phòng Giao dịch số 5 	2875	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVI - Phòng Giao dịch số 6 	2876	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVI - Phòng Giao dịch số 7 	2877	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVI - Phòng Giao dịch số 8 	2878	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVI - Phòng Giao dịch số 9 	2879	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVI - Phòng Giao dịch số 10 	2880	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVI - Phòng Giao dịch số 11 	2881	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVI - Phòng Giao dịch số 12 	2882	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVI - Phòng Giao dịch số 13 	2883	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVI - Phòng Giao dịch số 14 	2884	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVI - Phòng Giao dịch số 15 	2885	Lâm Đồng
+Kho bạc Nhà nước Khu vực XVII	1761	Đồng Nai
+Kho bạc Nhà nước Khu vực XVII - Phòng Giao dịch số 5 	1762	Đồng Nai
+Kho bạc Nhà nước Khu vực XVII - Phòng Giao dịch số 3 	1766	Đồng Nai
+Kho bạc Nhà nước Khu vực XVII - Phòng Giao dịch số 4 	1767	Đồng Nai
+Kho bạc Nhà nước Khu vực XVII - Phòng Giao dịch số 2 	1768	Đồng Nai
+Kho bạc Nhà nước Khu vực XVII - Phòng Giao dịch số 1 	1771	Đồng Nai
+Kho bạc Nhà nước Khu vực XVII - Phòng Giao dịch số 6 	1775	Đồng Nai
+Kho bạc Nhà nước Khu vực XVII - Phòng Giao dịch số 7 	1776	Đồng Nai
+Kho bạc Nhà nước Khu vực XVII - Phòng Giao dịch số 8 	1777	Đồng Nai
+Kho bạc Nhà nước Khu vực XVII - Phòng Giao dịch số 9 	1778	Đồng Nai
+Kho bạc Nhà nước Khu vực XVII - Phòng Giao dịch số 10 	1779	Đồng Nai
+Kho bạc Nhà nước Khu vực XVII - Phòng Giao dịch số 11 	1780	Đồng Nai
+Kho bạc Nhà nước khu vực XVIII - Phòng Kế toán Nhà nước	0511	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 1 	0514	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 2 	0516	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 3 	0518	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 4 	0520	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 6 	0524	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 5 	0526	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 7 	0527	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 8 	0528	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 9 	0529	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 10 	0530	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Nghiệp vụ 2 	0561	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 14 	0563	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 11 	0566	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 13 	0567	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 12 	0572	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 15 	0574	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 16 	0575	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 17 	0576	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 18 	0577	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 19 	0578	Tây Ninh
+Kho bạc Nhà nước Khu vực XVIII - Phòng Giao dịch số 20 	0579	Tây Ninh
+Kho bạc Nhà nước khu vực XIX - Phòng Kế toán Nhà nước	0861	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 1 	0862	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 3 	0863	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 2 	0870	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 4 	0871	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 5 	0872	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 6 	0873	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 7 	0874	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 8 	0875	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 9 	0876	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 10 	0877	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 11 	0878	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 12 	0879	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Nghiệp vụ 2	0711	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 15 	0713	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 14 	0715	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 16 	0716	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 13 	0720	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 17 	0721	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 18 	0722	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 19 	0723	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 20 	0724	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 21 	0725	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 22 	0726	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 23 	0727	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 24 	0728	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 25 	0729	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 26 	0730	Cần Thơ
+Kho bạc Nhà nước Khu vực XIX - Phòng Giao dịch số 27 	0731	Cần Thơ
+Kho bạc Nhà nước khu vực XX - Phòng Kế toán Nhà nước	0811	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 3 	0813	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 1 	0817	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 5 	0821	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 4 	0823	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 2 	0824	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 6 	0827	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 7 	0828	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 8 	0829	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 9 	0830	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 10 	0831	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 11 	0832	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Nghiệp vụ 2	0961	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 13 	0962	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 14 	0963	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 15 	0965	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 12 	0971	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 16 	0972	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 17 	0973	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 18 	0974	An Giang
+Kho bạc Nhà nước Khu vực XX - Phòng Giao dịch số 19 	0975	An Giang

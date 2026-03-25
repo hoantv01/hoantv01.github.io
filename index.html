@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Tra cứu danh mục</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- thư viện xuất excel -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+
+<h2>TRA CỨU DANH MỤC TXT</h2>
+
+<div class="tabs">
+    <button class="tab active" data-file="dbhc.txt">ĐBHC</button>
+    <button class="tab" data-file="kbnn.txt">Kho bạc</button>
+    <button class="tab" data-file="nganhang.txt">Ngân hàng</button>
+</div>
+
+<div class="top-bar">
+    <input id="searchInput" placeholder="Nhập mã, tên, khu vực...">
+
+    <button id="exportBtn">⬇ Xuất Excel</button>
+</div>
+
+<div class="table-wrapper">
+<table>
+    <thead>
+        <tr id="table-head"></tr>
+    </thead>
+    <tbody id="results"></tbody>
+</table>
+</div>
+
+<div style="
+  border: 2px solid #f4c27a;
+  background: #fff7e6;
+  padding: 16px;
+  border-radius: 12px;
+  color: #8a5a2b;
+  font-family: Arial, sans-serif;
+  max-width: 500px;
+">
+  <div style="font-weight: bold; font-size: 18px; margin-bottom: 8px;">
+    ❤️ Thấy app hay? Ủng hộ mình nhé!
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    Nếu app giúp ích cho bạn, một ly cà phê nhỏ sẽ giúp mình duy trì và phát triển thêm.
+  </div>
+
+  <div style="font-weight: bold;">
+    STK: MOTNUADIEUTHUOC<br>
+    Tên: TRẦN MINH QUỐC<br>
+    NH: VIETCOMBANK ĐÀ NẴNG<br>
+      Nếu có nhu cầu viết sáng kiến ứng dụng, xin liên hệ zalo 0986.646.848
+  </div>
+</div>
+
+<div class="note">👉 Click dòng bất kỳ để copy mã</div>
+
+</div>
+
+<script src="script.js"></script>
+<script src="export.js"></script>
+</body>
+</html>
