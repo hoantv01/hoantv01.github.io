@@ -1,28 +1,34 @@
 * {
     box-sizing: border-box;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
 }
 
 body {
     background: #f2f4f7;
+    margin: 0; /* Xóa khoảng trắng thừa viền ngoài */
+    padding: 5px; /* Giữ khoảng cách nhỏ gọn cho popup */
 }
  
 .container {
-    width: 950px;
-    margin: 30px auto;
+    width: 100%; /* Cho phép tự co giãn theo chiều rộng khung chứa (iframe) */
+    max-width: 950px; /* Vẫn giữ tối đa 950px nếu mở ở tab riêng biệt */
+    margin: 0 auto;
     background: #fff;
-    padding: 22px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,.2);
+    padding: 15px; /* Giảm padding để tiết kiệm diện tích cho popup */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
 }
 
 h2 {
     text-align: center;
+    margin-top: 5px;
     margin-bottom: 15px;
+    font-size: 18px; /* Giảm nhẹ size chữ tiêu đề */
 }
 
 .tabs {
     display: flex;
+    flex-wrap: wrap; /* Cho phép các tab tự động xuống dòng nếu popup quá hẹp */
     gap: 10px;
     margin-bottom: 10px;
 }
@@ -33,6 +39,8 @@ h2 {
     background: #e0e0e0;
     cursor: pointer;
     border-radius: 6px;
+    flex-grow: 1; /* Các nút tab sẽ tự động dàn đều cho đẹp */
+    text-align: center;
 }
 
 .tab.active {
@@ -44,12 +52,14 @@ h2 {
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
+    flex-wrap: wrap; /* Input và Nút bấm có thể rớt dòng nếu thiếu chỗ */
 }
 
 input {
     flex: 1;
     padding: 10px;
-    font-size: 16px;
+    font-size: 14px; /* Giảm nhẹ size chữ để vừa vặn hơn */
+    min-width: 200px; /* Đảm bảo ô nhập liệu không bị móp méo quá mức */
 }
 
 #exportBtn {
@@ -59,12 +69,20 @@ input {
     color: white;
     border-radius: 6px;
     cursor: pointer;
+    white-space: nowrap; /* Đảm bảo chữ trong nút không bị rớt dòng */
 }
 
 .table-wrapper {
-    max-height: 460px;
+    /* Đổi sang đơn vị vh (viewport height) để bảng tự động tính toán chiều cao theo màn hình, tránh bị 2 thanh cuộn lồng nhau */
+    max-height: calc(100vh - 200px); 
     overflow-y: auto;
     border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
 thead {
@@ -72,11 +90,14 @@ thead {
     color: white;
     position: sticky;
     top: 0;
+    z-index: 1;
 }
 
 th, td {
-    padding: 9px;
+    padding: 8px; /* Căn chỉnh lại khoảng cách trong ô */
     border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-size: 14px;
 }
 
 tbody tr:hover {
@@ -87,10 +108,12 @@ tbody tr:hover {
 mark {
     background: #ffe066;
     padding: 0 2px;
+    border-radius: 2px;
 }
 
 .note {
     margin-top: 8px;
     color: #555;
-    font-size: 14px;
+    font-size: 13px;
+    text-align: center;
 }
