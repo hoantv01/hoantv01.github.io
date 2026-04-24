@@ -2,6 +2,9 @@ let rawData = [];
 let currentFile = "dbhc.txt";
 let lastResult = [];
 
+// BỘ NHỚ ĐỆM: Chuyển tab qua lại sẽ không bao giờ phải tải lại file nữa!
+const fileCache = {};
+
 const input = document.getElementById("searchInput");
 const tbody = document.getElementById("results");
 const thead = document.getElementById("table-head");
@@ -23,33 +26,41 @@ function normalize(str) {
 }
 
 /* =====================
-   LOAD FILE (HỖ TRỢ JSON SIÊU TỐC)
+   LOAD FILE (NHANH NHƯ CHỚP)
 ===================== */
 async function loadFile(file) {
-    // Khóa ô tìm kiếm trong tích tắc lúc tải
-    input.disabled = true;
+    // Trả lại sự tự do: Không khóa input, dọn dẹp sạch sẽ để gõ luôn
     input.value = "";
-    input.placeholder = "Đang nạp dữ liệu...";
     tbody.innerHTML = "";
     rawData = [];
 
     buildHeader(file);
 
+    // Chỉ báo "Đang nạp" duy nhất cho file ĐVSDNS ở lần click đầu tiên
+    if (file.includes("madbhcdonvi") && !fileCache[file]) {
+        input.disabled = true;
+        input.placeholder = "Đang nạp danh mục ĐVSDNS...";
+    } else {
+        input.disabled = false;
+        input.placeholder = "Nhập từ khóa tìm kiếm...";
+    }
+
     try {
-        // Tự động nhận diện tab ĐVSDNS để gọi file .json
-        if (file.includes("madbhcdonvi")) {
-            const res = await fetch("data/madbhcdonvi.json");
-            if (!res.ok) throw new Error("Không tìm thấy file JSON");
-            
-            // Lõi C++ của trình duyệt sẽ parse Array of Arrays 300.000 dòng trong ~0.1s
-            rawData = await res.json(); 
+        // Tuyệt chiêu: Nếu file đã nằm trong Cache thì lấy ra dùng luôn (0s)
+        if (fileCache[file]) {
+            rawData = fileCache[file];
         } else {
-            // Các tab khác vẫn dùng file .txt bình thường
-            const res = await fetch("data/" + file);
-            if (!res.ok) throw new Error("Không tìm thấy file TXT");
-            
-            const text = await res.text();
-            rawData = text.split(/\r?\n/).filter(x => x.trim());
+            // Chưa có thì mới fetch từ GitHub về
+            if (file.includes("madbhcdonvi")) {
+                const res = await fetch("data/madbhcdonvi.json");
+                rawData = await res.json();
+            } else {
+                const res = await fetch("data/" + file);
+                const text = await res.text();
+                rawData = text.split(/\r?\n/).filter(x => x.trim());
+            }
+            // Lưu vào bộ nhớ đệm
+            fileCache[file] = rawData;
         }
         
         input.disabled = false;
@@ -79,7 +90,7 @@ function buildHeader(file) {
 }
 
 /* =====================
-   SEARCH DBHC (NGUYÊN BẢN)
+   SEARCH DBHC
 ===================== */
 function searchDBHC(keyword) {
     const q = normalize(keyword);
@@ -121,7 +132,7 @@ function searchDBHC(keyword) {
 }
 
 /* =====================
-   SEARCH NGÂN HÀNG & KBNN (NGUYÊN BẢN)
+   SEARCH NGÂN HÀNG & KBNN
 ===================== */
 function searchNormal(keyword) {
     const q = normalize(keyword);
@@ -149,7 +160,7 @@ function searchNormal(keyword) {
 }
 
 /* =====================
-   SEARCH ĐVSDNS (TỐI ƯU HÓA CHO JSON)
+   SEARCH ĐVSDNS (TỐI ƯU HÓA JSON)
 ===================== */
 function searchDVSDNS(keyword) {
     const q = normalize(keyword);
@@ -157,16 +168,13 @@ function searchDVSDNS(keyword) {
     const qLower = keyword.trim().toLowerCase();
     let results = [];
 
-    // rawData lúc này là mảng các mảng: [[ma, ten, madbhc, ten_khong_dau], ...]
     for (let i = 0; i < rawData.length; i++) {
         const row = rawData[i];
         
         const ma = (row[0] || "").toLowerCase();
-        // Bỏ qua row[1] (tên gốc có dấu) vì không cần dùng để tìm kiếm
         const maDBHC = (row[2] || "").toLowerCase();
-        const nTen = row[3] || ""; // Đã được Python cắt dấu sẵn
+        const nTen = row[3] || ""; 
 
-        // 1. Kiểm tra bắt buộc
         const isMatchAll = keys.every(k => 
             ma.includes(k) || 
             nTen.includes(k) || 
@@ -175,7 +183,6 @@ function searchDVSDNS(keyword) {
         
         if (!isMatchAll) continue;
 
-        // 2. Tính điểm
         let score = 0;
 
         if (ma === qLower) score += 2000;
@@ -195,7 +202,6 @@ function searchDVSDNS(keyword) {
         });
 
         if (score > 0) {
-            // Nối lại thành chuỗi line để dùng chung logic Render với các Tab khác
             const line = `${row[0]}\t${row[1]}\t${row[2]}`;
             results.push({ line, score });
         }
@@ -206,7 +212,7 @@ function searchDVSDNS(keyword) {
 }
 
 /* =====================
-   SỰ KIỆN TÌM KIẾM & RENDER
+   SỰ KIỆN TÌM KIẾM
 ===================== */
 input.addEventListener("input", () => {
     tbody.innerHTML = "";
@@ -227,7 +233,6 @@ input.addEventListener("input", () => {
 
     lastResult = results;
     
-    // Tách từ khóa gốc để highlight đúng cả trường hợp có dấu và không dấu
     const highlightKeys = keyword.split(" ").filter(k => k.trim() !== "");
 
     results.forEach(obj => {
@@ -249,7 +254,6 @@ input.addEventListener("input", () => {
             tr.appendChild(td);
         });
 
-        // Click để copy mã
         tr.onclick = () => {
             navigator.clipboard.writeText(cols[0])
                 .then(() => alert("Đã copy: " + cols[0]))
