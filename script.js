@@ -26,50 +26,90 @@ function normalize(str) {
 }
 
 /* =====================
+  Tách logic hiển thị kết quả ra một hàm riêng
+===================== */
+
+function renderResults(results, keyword) {
+    tbody.innerHTML = "";
+    lastResult = results;
+    
+    const highlightKeys = keyword.split(" ").filter(k => k.trim() !== "");
+
+    results.forEach(obj => {
+        const cols = obj.line.split(/\t| {2,}/);
+        const tr = document.createElement("tr");
+
+        cols.forEach(col => {
+            let html = col;
+            highlightKeys.forEach(k => {
+                if (k.length > 0) {
+                    const safeK = k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                    const reg = new RegExp(`(${safeK})`, "gi");
+                    html = html.replace(reg, "<mark>$1</mark>");
+                }
+            });
+
+            const td = document.createElement("td");
+            td.innerHTML = html;
+            tr.appendChild(td);
+        });
+
+        tr.onclick = () => {
+            let textToCopy = "";
+            let message = "";
+
+            if (currentFile.includes("madbhcdonvi")) {
+                textToCopy = cols[2] || ""; 
+                message = "Đã copy Mã ĐBHC: " + textToCopy;
+            } else {
+                textToCopy = cols[0] || ""; 
+                message = "Đã copy Mã: " + textToCopy;
+            }
+
+            if (textToCopy) {
+                navigator.clipboard.writeText(textToCopy)
+                    .then(() => alert(message))
+                    .catch(err => console.error("Lỗi copy: ", err));
+            }
+        };
+        tr.style.cursor = "pointer";
+        tbody.appendChild(tr);
+    });
+}
+
+/* =====================
    LOAD FILE (NHANH NHƯ CHỚP)
 ===================== */
 async function loadFile(file) {
-    // Trả lại sự tự do: Không khóa input, dọn dẹp sạch sẽ để gõ luôn
     input.value = "";
     tbody.innerHTML = "";
     rawData = [];
 
     buildHeader(file);
 
-    // Chỉ báo "Đang nạp" duy nhất cho file ĐVSDNS ở lần click đầu tiên
-    if (file.includes("madbhcdonvi") && !fileCache[file]) {
-        input.disabled = true;
-        input.placeholder = "Đang nạp danh mục ĐVSDNS...";
-    } else {
-        input.disabled = false;
-        input.placeholder = "Nhập từ khóa tìm kiếm...";
-    }
+    input.disabled = false;
+    input.focus();
 
-    try {
-        // Tuyệt chiêu: Nếu file đã nằm trong Cache thì lấy ra dùng luôn (0s)
-        if (fileCache[file]) {
-            rawData = fileCache[file];
-        } else {
-            // Chưa có thì mới fetch từ GitHub về
-            if (file.includes("madbhcdonvi")) {
-                const res = await fetch("data/madbhcdonvi.json");
-                rawData = await res.json();
+    if (file.includes("madbhcdonvi")) {
+        // KHÔNG FETCH DỮ LIỆU Ở ĐÂY NỮA
+        input.placeholder = "Nhập từ khóa và bấm ENTER để tìm...";
+    } else {
+        // Các file nhỏ (.txt) vẫn load bình thường
+        input.placeholder = "Đang nạp dữ liệu...";
+        try {
+            if (fileCache[file]) {
+                rawData = fileCache[file];
             } else {
                 const res = await fetch("data/" + file);
                 const text = await res.text();
                 rawData = text.split(/\r?\n/).filter(x => x.trim());
+                fileCache[file] = rawData;
             }
-            // Lưu vào bộ nhớ đệm
-            fileCache[file] = rawData;
+            input.placeholder = "Nhập từ khóa tìm kiếm...";
+        } catch (err) {
+            input.placeholder = "Lỗi: Không tải được dữ liệu!";
+            console.error(err);
         }
-        
-        input.disabled = false;
-        input.placeholder = "Nhập từ khóa tìm kiếm...";
-        input.focus();
-        
-    } catch (err) {
-        input.placeholder = "Lỗi: Không tải được dữ liệu!";
-        console.error(err);
     }
 }
 
@@ -212,71 +252,73 @@ function searchDVSDNS(keyword) {
 }
 
 /* =====================
-   SỰ KIỆN TÌM KIẾM
+   SỰ KIỆN TÌM KIẾM THEO ENTER (CHO FILE LỚN)
+===================== */
+input.addEventListener("keydown", async (e) => {
+    // Chỉ can thiệp khi là tab ĐVSDNS và người dùng bấm Enter
+    if (currentFile.includes("madbhcdonvi") && e.key === "Enter") {
+        const keyword = input.value.trim();
+        if (!keyword) return;
+
+        // Báo hiệu đang xử lý
+        const oldPlaceholder = input.placeholder;
+        input.placeholder = "Đang nạp và tìm kiếm dữ liệu, vui lòng chờ...";
+        input.disabled = true;
+        tbody.innerHTML = "<tr><td colspan='3' style='text-align:center;'>Đang truy vấn dữ liệu lớn...</td></tr>";
+
+        try {
+            // Nạp dữ liệu (nếu chưa có trong cache)
+            if (!fileCache[currentFile]) {
+                const res = await fetch("data/madbhcdonvi.json");
+                fileCache[currentFile] = await res.json();
+            }
+            
+            // Gán dữ liệu cho rawData
+            rawData = fileCache[currentFile];
+
+            // Chạy thuật toán tìm kiếm
+            const results = searchDVSDNS(keyword);
+            
+            // Hiển thị kết quả
+            if (results.length === 0) {
+                tbody.innerHTML = "<tr><td colspan='3' style='text-align:center;'>Không tìm thấy kết quả!</td></tr>";
+            } else {
+                renderResults(results, keyword);
+            }
+
+        } catch (err) {
+            console.error(err);
+            tbody.innerHTML = "<tr><td colspan='3' style='text-align:center;color:red;'>Lỗi tải dữ liệu!</td></tr>";
+        } finally {
+            // Trả lại trạng thái input
+            input.disabled = false;
+            input.placeholder = oldPlaceholder;
+            input.focus();
+        }
+    }
+});
+
+/* =====================
+   SỰ KIỆN TÌM KIẾM REAL-TIME (CHO CÁC FILE NHỎ CÒN LẠI)
 ===================== */
 input.addEventListener("input", () => {
-    tbody.innerHTML = "";
-    lastResult = [];
+    // Nếu là file lớn, bỏ qua sự kiện input (chờ Enter)
+    if (currentFile.includes("madbhcdonvi")) return;
 
     const keyword = input.value.trim();
-    if (!keyword) return;
+    if (!keyword) {
+        tbody.innerHTML = "";
+        return;
+    }
 
     let results = [];
-
     if (currentFile === "dbhc.txt") {
         results = searchDBHC(keyword);
-    } else if (currentFile.includes("madbhcdonvi")) {
-        results = searchDVSDNS(keyword); 
     } else {
         results = searchNormal(keyword);
     }
 
-    lastResult = results;
-    
-    const highlightKeys = keyword.split(" ").filter(k => k.trim() !== "");
-
-    results.forEach(obj => {
-        const cols = obj.line.split(/\t| {2,}/);
-        const tr = document.createElement("tr");
-
-        cols.forEach(col => {
-            let html = col;
-            highlightKeys.forEach(k => {
-                if (k.length > 0) {
-                    const safeK = k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                    const reg = new RegExp(`(${safeK})`, "gi");
-                    html = html.replace(reg, "<mark>$1</mark>");
-                }
-            });
-
-            const td = document.createElement("td");
-            td.innerHTML = html;
-            tr.appendChild(td);
-        });
-
-        // TÙY CHỈNH: Click copy cột 3 cho ĐVSDNS, cột 1 cho các tab khác
-        tr.onclick = () => {
-            let textToCopy = "";
-            let message = "";
-
-            if (currentFile.includes("madbhcdonvi")) {
-                textToCopy = cols[2] || ""; // Cột thứ 3 (Mã ĐBHC)
-                message = "Đã copy Mã ĐBHC: " + textToCopy;
-            } else {
-                textToCopy = cols[0] || ""; // Cột thứ 1 (Mã thông thường)
-                message = "Đã copy Mã: " + textToCopy;
-            }
-
-            if (textToCopy) {
-                navigator.clipboard.writeText(textToCopy)
-                    .then(() => alert(message))
-                    .catch(err => console.error("Lỗi copy: ", err));
-            }
-        };
-        tr.style.cursor = "pointer";
-        
-        tbody.appendChild(tr);
-    });
+    renderResults(results, keyword);
 });
 
 /* =====================
