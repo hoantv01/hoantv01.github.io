@@ -254,10 +254,24 @@ input.addEventListener("input", () => {
             tr.appendChild(td);
         });
 
+        // TÙY CHỈNH: Click copy cột 3 cho ĐVSDNS, cột 1 cho các tab khác
         tr.onclick = () => {
-            navigator.clipboard.writeText(cols[0])
-                .then(() => alert("Đã copy: " + cols[0]))
-                .catch(err => console.error("Lỗi copy: ", err));
+            let textToCopy = "";
+            let message = "";
+
+            if (currentFile.includes("madbhcdonvi")) {
+                textToCopy = cols[2] || ""; // Cột thứ 3 (Mã ĐBHC)
+                message = "Đã copy Mã ĐBHC: " + textToCopy;
+            } else {
+                textToCopy = cols[0] || ""; // Cột thứ 1 (Mã thông thường)
+                message = "Đã copy Mã: " + textToCopy;
+            }
+
+            if (textToCopy) {
+                navigator.clipboard.writeText(textToCopy)
+                    .then(() => alert(message))
+                    .catch(err => console.error("Lỗi copy: ", err));
+            }
         };
         tr.style.cursor = "pointer";
         
