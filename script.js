@@ -2,13 +2,61 @@ let rawData = [];
 let currentFile = "dbhc.txt";
 let lastResult = [];
 
-// BỘ NHỚ ĐỆM: Chuyển tab qua lại sẽ không bao giờ phải tải lại file nữa!
+// BỘ NHỚ ĐỆM
 const fileCache = {};
 
 const input = document.getElementById("searchInput");
 const tbody = document.getElementById("results");
 const thead = document.getElementById("table-head");
 const tabs = document.querySelectorAll(".tab");
+
+/* =====================
+   TỪ ĐIỂN ĐỒNG NGHĨA NGÂN HÀNG (ALIAS)
+===================== */
+const bankAliases = [
+    ["a chau", "acb"],
+    ["an binh", "abbank"],
+    ["bac a", "bac a bank"],
+    ["ban viet", "bvbank"],
+    ["bao viet", "baoviet"],
+    ["cong thuong", "vietinbank"],
+    ["dai chung", "pvcombank"],
+    ["dau tu", "bidv"], 
+    ["dong nam a", "seabank"],
+    ["hang hai", "msb"],
+    ["kien long", "kienlongbank"],
+    ["ky thuong", "techcombank"],
+    ["loc phat", "lvbank lpbank"],
+    ["nam a", "nam a bank"],
+    ["ngoai thuong", "vietcombank vcb"],
+    ["phat trien tphcm", "hdbank"],
+    ["phat trien tp", "hdbank"],
+    ["phuong dong", "ocb"],
+    ["quan doi", "mbbank mb"],
+    ["quoc dan", "ncb"],
+    ["quoc te", "vib"],
+    ["sai gon ha noi", "shb"],
+    ["sai gon cong thuong", "saigonbank"],
+    ["sai gon thuong tin", "sacombank"],
+    ["sai gon", "scb"], 
+    ["thinh vuong va phat", "pgbank"],
+    ["tien phong", "tpbank"],
+    ["viet a", "vietabank"],
+    ["viet nam thinh vuong", "vpbank vpb"],
+    ["viet nam thuong tin", "vietbank"],
+    ["xuat nhap khau", "eximbank"],
+    ["ky nguyen", "gpbank"],
+    ["cong nghe so", "vcbneo"],
+    ["vikki", "so vikki"],
+    ["hien dai", "mbv"],
+    ["indovina", "ivb"],
+    ["viet nga", "vrb"],
+    ["chinh sach", "vbsp"],
+    ["hop tac xa", "coopbank"],
+    ["nong nghiep", "agribank"],
+    ["nong thon", "agribank"],
+    ["nn pt", "agribank"]
+];
 
 /* =====================
    CHUẨN HÓA TIẾNG VIỆT
@@ -26,7 +74,7 @@ function normalize(str) {
 }
 
 /* =====================
-  Tách logic hiển thị kết quả ra một hàm riêng
+  RENDER KẾT QUẢ
 ===================== */
 function renderResults(results, keyword) {
     tbody.innerHTML = "";
@@ -69,7 +117,7 @@ function renderResults(results, keyword) {
 }
 
 /* =====================
-   LOAD FILE (NHANH NHƯ CHỚP)
+   LOAD FILE 
 ===================== */
 async function loadFile(file) {
     input.value = "";
@@ -155,15 +203,27 @@ function searchDBHC(keyword) {
 }
 
 /* =====================
-   SEARCH NGÂN HÀNG & KBNN
+   SEARCH NGÂN HÀNG & KBNN (ĐÃ TỐI ƯU ALIAS)
 ===================== */
 function searchNormal(keyword) {
     const q = normalize(keyword);
     const keys = q.split(" ").filter(k => k.trim() !== "");
     let results = [];
+    
+    // Kiểm tra xem có đang ở tab Ngân hàng hay không
+    const isNganHang = currentFile === "nganhang.txt";
 
     for (let line of rawData) {
-        const n = normalize(line);
+        let n = normalize(line);
+        
+        // NẾU LÀ NGÂN HÀNG: Tự động đính kèm tên chéo vào chuỗi tìm kiếm
+        if (isNganHang) {
+            bankAliases.forEach(pair => {
+                if (n.includes(pair[0]) && !n.includes(pair[1])) n += " " + pair[1];
+                else if (n.includes(pair[1]) && !n.includes(pair[0])) n += " " + pair[0];
+            });
+        }
+
         const isMatchAll = keys.every(k => n.includes(k));
         if (!isMatchAll) continue; 
 
