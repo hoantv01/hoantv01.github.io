@@ -6,7 +6,6 @@
 
 <link rel="stylesheet" href="style.css">
 
-<!-- thư viện xuất excel -->
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
@@ -17,14 +16,12 @@
 
 <div class="tabs">
     <button class="tab" data-file="kbnn.txt">Kho bạc</button>
-    <button class="tab" data-file="madbhcdonvi.txt">ĐVSDNS</button>
     <button class="tab" data-file="nganhang.txt">Ngân hàng</button>
     <button class="tab active" data-file="dbhc.txt">ĐBHC</button> 
 </div>
 
 <div class="top-bar">
     <input id="searchInput" placeholder="Nhập mã, tên, khu vực...">
-
     <button id="exportBtn">⬇ Xuất Excel</button>
 </div>
 
@@ -36,8 +33,6 @@
     <tbody id="results"></tbody>
 </table>
 </div>
-
-
 
 <div class="note">👉 Click dòng bất kỳ để copy mã</div>
 
