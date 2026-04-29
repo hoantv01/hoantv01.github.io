@@ -271,23 +271,32 @@ function searchNormal(keyword) {
 }
 
 /* =====================
-   SỰ KIỆN TÌM KIẾM REAL-TIME 
+   SỰ KIỆN TÌM KIẾM REAL-TIME (CÓ DEBOUNCE - CHỐNG LAG)
 ===================== */
+let searchTimeout = null; // Khai báo biến lưu trữ bộ đếm thời gian
+
 input.addEventListener("input", () => {
     const keyword = input.value.trim();
+    
+    // Hủy bỏ lệnh tìm kiếm trước đó nếu người dùng vẫn đang tiếp tục gõ
+    clearTimeout(searchTimeout);
+
     if (!keyword) {
         tbody.innerHTML = "";
         return;
     }
 
-    let results = [];
-    if (currentFile === "dbhc.txt") {
-        results = searchDBHC(keyword);
-    } else {
-        results = searchNormal(keyword);
-    }
+    // Thiết lập thời gian chờ (300ms) sau khi người dùng ngừng gõ mới chạy tìm kiếm
+    searchTimeout = setTimeout(() => {
+        let results = [];
+        if (currentFile === "dbhc.txt") {
+            results = searchDBHC(keyword);
+        } else {
+            results = searchNormal(keyword);
+        }
 
-    renderResults(results, keyword);
+        renderResults(results, keyword);
+    }, 300); // Bạn có thể tăng lên 400 hoặc 500 nếu máy tính/điện thoại yếu hơn
 });
 
 /* =====================
