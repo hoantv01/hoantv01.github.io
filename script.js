@@ -11,13 +11,48 @@ const thead = document.getElementById("table-head");
 const tabs = document.querySelectorAll(".tab");
 
 /* =====================
-   TỪ ĐIỂN ĐỒNG NGHĨA NGÂN HÀNG (ALIAS)
+   TỪ ĐIỂN ĐỒNG NGHĨA NGÂN HÀNG (Bao gồm cả Lịch sử đổi tên)
 ===================== */
 const bankAliases = [
+    // 1. Các ngân hàng đổi tên / Chuyển giao bắt buộc (Cập nhật 2024 - 2025)
+    ["xang dau", "pgbank"],
+    ["petrolimex", "pgbank"],
+    ["thinh vuong va phat", "pgbank"], // PGBank (Trước là Ngân hàng Xăng dầu)
+
+    ["lien viet", "lvbank lpbank"],
+    ["buu dien", "lvbank lpbank"],
+    ["lienvietpostbank", "lvbank lpbank"],
+    ["loc phat", "lvbank lpbank"], // LPBank (Trước là Bưu điện Liên Việt)
+
+    ["dong a", "vikki"], 
+    ["dongabank", "vikki"], 
+    ["so vikki", "vikki"], // Ngân hàng Đông Á chuyển giao cho HDBank đổi thành Số Vikki
+
+    ["xay dung", "vcbneo"],
+    ["cbbank", "vcbneo"],
+    ["dai tin", "vcbneo"],
+    ["trustbank", "vcbneo"],
+    ["cong nghe so", "vcbneo"], // CBBank (Đại Tín) chuyển giao Vietcombank đổi thành VCBNeo
+
+    ["dai duong", "mbv"],
+    ["oceanbank", "mbv"],
+    ["hien dai", "mbv"], // OceanBank chuyển giao MB đổi thành MBV (Việt Nam Hiện Đại)
+
+    ["dau khi", "gpbank"],
+    ["toan cau", "gpbank"],
+    ["ky nguyen", "gpbank"], // GPBank chuyển giao VPBank đổi thành Kỷ Nguyên Thịnh Vượng
+
+    ["nam viet", "ncb"],
+    ["navibank", "ncb"],
+    ["quoc dan", "ncb"], // NCB (Trước là Nam Việt - Navibank)
+
+    ["viet capital", "bvbank"],
+    ["ban viet", "bvbank"], // BVBank (Trước là Viet Capital Bank)
+
+    // 2. Các ngân hàng TMCP lớn và tên viết tắt thông dụng
     ["a chau", "acb"],
     ["an binh", "abbank"],
     ["bac a", "bac a bank"],
-    ["ban viet", "bvbank"],
     ["bao viet", "baoviet"],
     ["cong thuong", "vietinbank"],
     ["dai chung", "pvcombank"],
@@ -26,29 +61,24 @@ const bankAliases = [
     ["hang hai", "msb"],
     ["kien long", "kienlongbank"],
     ["ky thuong", "techcombank"],
-    ["loc phat", "lvbank lpbank"],
     ["nam a", "nam a bank"],
     ["ngoai thuong", "vietcombank vcb"],
     ["phat trien tphcm", "hdbank"],
     ["phat trien tp", "hdbank"],
     ["phuong dong", "ocb"],
     ["quan doi", "mbbank mb"],
-    ["quoc dan", "ncb"],
     ["quoc te", "vib"],
     ["sai gon ha noi", "shb"],
     ["sai gon cong thuong", "saigonbank"],
     ["sai gon thuong tin", "sacombank"],
     ["sai gon", "scb"], 
-    ["thinh vuong va phat", "pgbank"],
     ["tien phong", "tpbank"],
     ["viet a", "vietabank"],
     ["viet nam thinh vuong", "vpbank vpb"],
     ["viet nam thuong tin", "vietbank"],
     ["xuat nhap khau", "eximbank"],
-    ["ky nguyen", "gpbank"],
-    ["cong nghe so", "vcbneo"],
-    ["vikki", "so vikki"],
-    ["hien dai", "mbv"],
+    
+    // 3. Ngân hàng đặc thù / Liên doanh
     ["indovina", "ivb"],
     ["viet nga", "vrb"],
     ["chinh sach", "vbsp"],
