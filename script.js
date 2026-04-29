@@ -2,7 +2,6 @@ let rawData = [];
 let currentFile = "dbhc.txt";
 let lastResult = [];
 
-// BỘ NHỚ ĐỆM
 const fileCache = {};
 
 const input = document.getElementById("searchInput");
@@ -11,81 +10,56 @@ const thead = document.getElementById("table-head");
 const tabs = document.querySelectorAll(".tab");
 
 /* =====================
-   TỪ ĐIỂN ĐỒNG NGHĨA NGÂN HÀNG (Bao gồm cả Lịch sử đổi tên)
+   TỪ ĐIỂN ĐỒNG NGHĨA & LỊCH SỬ NGÂN HÀNG
 ===================== */
-const bankAliases = [
-    // 1. Các ngân hàng đổi tên / Chuyển giao bắt buộc (Cập nhật 2024 - 2025)
-    ["xang dau", "pgbank"],
-    ["petrolimex", "pgbank"],
-    ["thinh vuong va phat", "pgbank"], // PGBank (Trước là Ngân hàng Xăng dầu)
+const bankGroups = [
+    // 1. Nhóm chuyển giao bắt buộc / Đổi tên toàn diện (Lịch sử phức tạp nhất)
+    { brand: "VCBNeo", fullname: "CBBank (Đại Tín / Xây dựng)", keys: ["vcbneo", "cong nghe so", "cbbank", "xay dung", "vncb", "dai tin", "trustbank"] },
+    { brand: "Vikki Bank", fullname: "Đông Á", keys: ["vikki", "so vikki", "dong a", "dongabank"] },
+    { brand: "MBV", fullname: "OceanBank (Đại Dương / Hải Hưng)", keys: ["mbv", "hien dai", "oceanbank", "dai duong", "hai hung"] },
+    { brand: "GPBank", fullname: "Kỷ Nguyên Thịnh Vượng (Dầu khí Toàn cầu)", keys: ["gpbank", "ky nguyen", "dau khi", "toan cau", "ninh binh"] },
+    { brand: "PGBank", fullname: "Thịnh vượng và Phát triển (Xăng dầu Petrolimex)", keys: ["pgbank", "thinh vuong va phat", "xang dau", "petrolimex"] },
+    { brand: "LPBank", fullname: "Lộc Phát (Bưu điện Liên Việt)", keys: ["lpbank", "lvbank", "loc phat", "lien viet", "lienvietpostbank", "buu dien"] },
+    { brand: "BVBank", fullname: "Bản Việt (Viet Capital / Gia Định)", keys: ["bvbank", "ban viet", "viet capital", "gia dinh"] },
+    { brand: "NCB", fullname: "Quốc Dân (Nam Việt / Sông Kiên)", keys: ["ncb", "quoc dan", "nam viet", "navibank", "song kien"] },
+    { brand: "PVcomBank", fullname: "Đại Chúng (Phương Tây / Tài chính Dầu khí)", keys: ["pvcombank", "dai chung", "phuong tay", "western bank", "pvfc"] },
+    { brand: "SHB", fullname: "Sài Gòn - Hà Nội (Habubank / Nhơn Ái)", keys: ["shb", "sai gon ha noi", "habubank", "nhon ai"] },
+    { brand: "SCB", fullname: "Sài Gòn (Đệ Nhất / Tín Nghĩa)", keys: ["scb", "ngan hang sai gon", "de nhat", "tin nghia"] },
 
-    ["lien viet", "lvbank lpbank"],
-    ["buu dien", "lvbank lpbank"],
-    ["lienvietpostbank", "lvbank lpbank"],
-    ["loc phat", "lvbank lpbank"], // LPBank (Trước là Bưu điện Liên Việt)
+    // 2. Nhóm Big 4 & Ngân hàng Chính sách
+    { brand: "Agribank", fullname: "Nông nghiệp và Phát triển Nông thôn", keys: ["agribank", "nong nghiep", "nn pt"] },
+    { brand: "BIDV", fullname: "Đầu tư và Phát triển", keys: ["bidv", "dau tu"] },
+    { brand: "Vietcombank", fullname: "Ngoại thương", keys: ["vietcombank", "vcb", "ngoai thuong"] },
+    { brand: "VietinBank", fullname: "Công thương", keys: ["vietinbank", "ctg", "cong thuong"] },
+    { brand: "VBSP", fullname: "Chính sách xã hội", keys: ["vbsp", "chinh sach xa hoi", "chinh sach"] },
+    { brand: "VDB", fullname: "Phát triển Việt Nam", keys: ["vdb", "phat trien viet nam", "phat trien vn"] },
 
-    ["dong a", "vikki"], 
-    ["dongabank", "vikki"], 
-    ["so vikki", "vikki"], // Ngân hàng Đông Á chuyển giao cho HDBank đổi thành Số Vikki
+    // 3. Nhóm TMCP lớn & Cổ phần khác
+    { brand: "ACB", fullname: "Á Châu", keys: ["acb", "a chau"] },
+    { brand: "ABBANK", fullname: "An Bình", keys: ["abbank", "an binh"] },
+    { brand: "Bac A Bank", fullname: "Bắc Á", keys: ["bac a", "bac a bank"] },
+    { brand: "BAOVIET Bank", fullname: "Bảo Việt", keys: ["baoviet", "bao viet"] },
+    { brand: "SeABank", fullname: "Đông Nam Á", keys: ["seabank", "dong nam a"] },
+    { brand: "MSB", fullname: "Hàng Hải (Maritime Bank)", keys: ["msb", "hang hai", "maritime"] },
+    { brand: "Kienlongbank", fullname: "Kiên Long", keys: ["kienlongbank", "kien long"] },
+    { brand: "Techcombank", fullname: "Kỹ Thương", keys: ["techcombank", "ky thuong"] },
+    { brand: "Nam A Bank", fullname: "Nam Á", keys: ["nam a bank", "nam a"] },
+    { brand: "HDBank", fullname: "Phát triển TP.HCM", keys: ["hdbank", "phat trien tp"] },
+    { brand: "OCB", fullname: "Phương Đông", keys: ["ocb", "phuong dong"] },
+    { brand: "MBBANK", fullname: "Quân Đội", keys: ["mbbank", "mb", "quan doi"] },
+    { brand: "VIB", fullname: "Quốc Tế", keys: ["vib", "quoc te"] },
+    { brand: "SAIGONBANK", fullname: "Sài Gòn Công Thương", keys: ["saigonbank", "sai gon cong thuong"] },
+    { brand: "Sacombank", fullname: "Sài Gòn Thương Tín", keys: ["sacombank", "sai gon thuong tin"] },
+    { brand: "TPBank", fullname: "Tiên Phong", keys: ["tpbank", "tien phong"] },
+    { brand: "VietABank", fullname: "Việt Á", keys: ["vietabank", "viet a"] },
+    { brand: "VPBank", fullname: "Việt Nam Thịnh Vượng", keys: ["vpbank", "vpb", "viet nam thinh vuong"] },
+    { brand: "Vietbank", fullname: "Việt Nam Thương Tín", keys: ["vietbank", "viet nam thuong tin"] },
+    { brand: "Eximbank", fullname: "Xuất Nhập Khẩu", keys: ["eximbank", "eib", "xuat nhap khau"] },
 
-    ["xay dung", "vcbneo"],
-    ["cbbank", "vcbneo"],
-    ["dai tin", "vcbneo"],
-    ["trustbank", "vcbneo"],
-    ["cong nghe so", "vcbneo"], // CBBank (Đại Tín) chuyển giao Vietcombank đổi thành VCBNeo
-
-    ["dai duong", "mbv"],
-    ["oceanbank", "mbv"],
-    ["hien dai", "mbv"], // OceanBank chuyển giao MB đổi thành MBV (Việt Nam Hiện Đại)
-
-    ["dau khi", "gpbank"],
-    ["toan cau", "gpbank"],
-    ["ky nguyen", "gpbank"], // GPBank chuyển giao VPBank đổi thành Kỷ Nguyên Thịnh Vượng
-
-    ["nam viet", "ncb"],
-    ["navibank", "ncb"],
-    ["quoc dan", "ncb"], // NCB (Trước là Nam Việt - Navibank)
-
-    ["viet capital", "bvbank"],
-    ["ban viet", "bvbank"], // BVBank (Trước là Viet Capital Bank)
-
-    // 2. Các ngân hàng TMCP lớn và tên viết tắt thông dụng
-    ["a chau", "acb"],
-    ["an binh", "abbank"],
-    ["bac a", "bac a bank"],
-    ["bao viet", "baoviet"],
-    ["cong thuong", "vietinbank"],
-    ["dai chung", "pvcombank"],
-    ["dau tu", "bidv"], 
-    ["dong nam a", "seabank"],
-    ["hang hai", "msb"],
-    ["kien long", "kienlongbank"],
-    ["ky thuong", "techcombank"],
-    ["nam a", "nam a bank"],
-    ["ngoai thuong", "vietcombank vcb"],
-    ["phat trien tphcm", "hdbank"],
-    ["phat trien tp", "hdbank"],
-    ["phuong dong", "ocb"],
-    ["quan doi", "mbbank mb"],
-    ["quoc te", "vib"],
-    ["sai gon ha noi", "shb"],
-    ["sai gon cong thuong", "saigonbank"],
-    ["sai gon thuong tin", "sacombank"],
-    ["sai gon", "scb"], 
-    ["tien phong", "tpbank"],
-    ["viet a", "vietabank"],
-    ["viet nam thinh vuong", "vpbank vpb"],
-    ["viet nam thuong tin", "vietbank"],
-    ["xuat nhap khau", "eximbank"],
-    
-    // 3. Ngân hàng đặc thù / Liên doanh
-    ["indovina", "ivb"],
-    ["viet nga", "vrb"],
-    ["chinh sach", "vbsp"],
-    ["hop tac xa", "coopbank"],
-    ["nong nghiep", "agribank"],
-    ["nong thon", "agribank"],
-    ["nn pt", "agribank"]
+    // 4. Nhóm Liên doanh & Hợp tác xã
+    { brand: "IVB", fullname: "Indovina", keys: ["ivb", "indovina"] },
+    { brand: "VRB", fullname: "Việt Nga", keys: ["vrb", "viet nga"] },
+    { brand: "Co-opBank", fullname: "Hợp tác xã (Quỹ TDND)", keys: ["coopbank", "hop tac xa", "quy tin dung"] }
 ];
 
 /* =====================
@@ -104,7 +78,7 @@ function normalize(str) {
 }
 
 /* =====================
-  RENDER KẾT QUẢ
+  RENDER KẾT QUẢ (CÓ TÍCH HỢP TAG HIỂN THỊ CHÉO)
 ===================== */
 function renderResults(results, keyword) {
     tbody.innerHTML = "";
@@ -116,8 +90,10 @@ function renderResults(results, keyword) {
         const cols = obj.line.split(/\t| {2,}/);
         const tr = document.createElement("tr");
 
-        cols.forEach(col => {
+        cols.forEach((col, index) => {
             let html = col;
+            
+            // Highlight từ khóa
             highlightKeys.forEach(k => {
                 if (k.length > 0) {
                     const safeK = k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -125,6 +101,11 @@ function renderResults(results, keyword) {
                     html = html.replace(reg, "<mark>$1</mark>");
                 }
             });
+
+            // Nếu là tab Ngân hàng, cột Tên (cột index 1) và có chứa tag đồng nghĩa thì nối tag vào
+            if (currentFile === "nganhang.txt" && index === 1 && obj.tag) {
+                html += obj.tag;
+            }
 
             const td = document.createElement("td");
             td.innerHTML = html;
@@ -186,12 +167,12 @@ function buildHeader(file) {
         thead.innerHTML = "<th>Mã</th><th>Phường / Xã</th><th>Tỉnh / Huyện</th>";
     else if (file === "kbnn.txt")
         thead.innerHTML = "<th>Tên Kho bạc</th><th>Mã</th><th>Tỉnh</th>";
-    else
-        thead.innerHTML = "<th>Mã</th><th>Ngân hàng</th>";
+    else // Cập nhật lại cho khớp với format 2 cột của bạn
+        thead.innerHTML = "<th>Mã</th><th>Tên Chi nhánh Ngân hàng</th>";
 }
 
 /* =====================
-   SEARCH DBHC
+   SEARCH DBHC & KBNN (GIỮ NGUYÊN)
 ===================== */
 function searchDBHC(keyword) {
     const q = normalize(keyword);
@@ -233,41 +214,46 @@ function searchDBHC(keyword) {
 }
 
 /* =====================
-   SEARCH NGÂN HÀNG & KBNN (ĐÃ TỐI ƯU ALIAS)
+   SEARCH NGÂN HÀNG (THÔNG MINH NHẬN DIỆN CHÉO)
 ===================== */
 function searchNormal(keyword) {
     const q = normalize(keyword);
     const keys = q.split(" ").filter(k => k.trim() !== "");
     let results = [];
-    
-    // Kiểm tra xem có đang ở tab Ngân hàng hay không
     const isNganHang = currentFile === "nganhang.txt";
 
     for (let line of rawData) {
-        let n = normalize(line);
-        
-        // NẾU LÀ NGÂN HÀNG: Tự động đính kèm tên chéo vào chuỗi tìm kiếm
+        let searchableStr = normalize(line);
+        let tagHtml = "";
+
+        // Tự động đối chiếu và nối từ khóa nếu là tab Ngân hàng
         if (isNganHang) {
-            bankAliases.forEach(pair => {
-                if (n.includes(pair[0]) && !n.includes(pair[1])) n += " " + pair[1];
-                else if (n.includes(pair[1]) && !n.includes(pair[0])) n += " " + pair[0];
-            });
+            const matchedGroup = bankGroups.find(g => g.keys.some(k => searchableStr.includes(k)));
+            if (matchedGroup) {
+                // Nhồi thêm tất cả các từ khóa liên quan vào chuỗi tìm kiếm ngầm
+                searchableStr += " " + matchedGroup.keys.join(" ");
+                // Tạo thẻ hiển thị thông tin đính kèm
+                tagHtml = `<br><span style="color: #007bff; font-size: 0.85em; font-weight: bold;">(💡 ${matchedGroup.brand} - ${matchedGroup.fullname})</span>`;
+            }
         }
 
-        const isMatchAll = keys.every(k => n.includes(k));
+        const isMatchAll = keys.every(k => searchableStr.includes(k));
         if (!isMatchAll) continue; 
 
         let score = 0;
-        if (n.includes(q)) score += 1000; 
+        if (searchableStr.includes(q)) score += 1000; 
 
         keys.forEach(k => {
-            const paddedN = " " + n + " ";
+            const paddedN = " " + searchableStr + " ";
             const paddedK = " " + k + " ";
             if (paddedN.includes(paddedK)) score += 50; 
             else score += 20; 
         });
-        results.push({ line, score });
+
+        // Đẩy kèm biến tagHtml vào kết quả để render hiển thị
+        results.push({ line, score, tag: tagHtml });
     }
+    
     results.sort((a, b) => b.score - a.score);
     return results.slice(0, 50);
 }
