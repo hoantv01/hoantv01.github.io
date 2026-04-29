@@ -214,7 +214,7 @@ function searchDBHC(keyword) {
 }
 
 /* =====================
-   SEARCH NGÂN HÀNG (THÔNG MINH NHẬN DIỆN CHÉO)
+   SEARCH NGÂN HÀNG (TỐI ƯU NHẬN DIỆN CHÉO 2 CHIỀU)
 ===================== */
 function searchNormal(keyword) {
     const q = normalize(keyword);
@@ -226,21 +226,32 @@ function searchNormal(keyword) {
         let searchableStr = normalize(line);
         let tagHtml = "";
 
-        // Tự động đối chiếu và nối từ khóa nếu là tab Ngân hàng
+        // Tự động đối chiếu và nhồi thêm từ khóa nếu là tab Ngân hàng
         if (isNganHang) {
-            const matchedGroup = bankGroups.find(g => g.keys.some(k => searchableStr.includes(k)));
+            const matchedGroup = bankGroups.find(g => 
+                g.keys.some(k => searchableStr.includes(k)) || 
+                searchableStr.includes(normalize(g.brand))
+            );
+
             if (matchedGroup) {
-                // Nhồi thêm tất cả các từ khóa liên quan vào chuỗi tìm kiếm ngầm
-                searchableStr += " " + matchedGroup.keys.join(" ");
+                // ĐIỂM TỐI ƯU: Nhồi cả brand, fullname và keys vào chuỗi ngầm.
+                // Điều này giúp user gõ "đầu tư và phát triển" thì dòng chỉ có chữ "BIDV" vẫn match đủ các từ.
+                const extraInfo = normalize(`${matchedGroup.brand} ${matchedGroup.fullname} ${matchedGroup.keys.join(" ")}`);
+                searchableStr += " " + extraInfo;
+                
                 // Tạo thẻ hiển thị thông tin đính kèm
                 tagHtml = `<br><span style="color: #007bff; font-size: 0.85em; font-weight: bold;">(💡 ${matchedGroup.brand} - ${matchedGroup.fullname})</span>`;
             }
         }
 
+        // Bắt buộc phải chứa TẤT CẢ các từ khóa user nhập vào
         const isMatchAll = keys.every(k => searchableStr.includes(k));
         if (!isMatchAll) continue; 
 
+        // Tính điểm ưu tiên để xếp hạng kết quả
         let score = 0;
+        
+        // Nếu chuỗi (đã bao gồm phần nhồi thêm) chứa nguyên cụm từ khóa user gõ -> Ưu tiên cao nhất
         if (searchableStr.includes(q)) score += 1000; 
 
         keys.forEach(k => {
@@ -254,6 +265,7 @@ function searchNormal(keyword) {
         results.push({ line, score, tag: tagHtml });
     }
     
+    // Sắp xếp kết quả từ cao xuống thấp
     results.sort((a, b) => b.score - a.score);
     return results.slice(0, 50);
 }
