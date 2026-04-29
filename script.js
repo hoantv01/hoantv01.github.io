@@ -28,7 +28,6 @@ function normalize(str) {
 /* =====================
   Tách logic hiển thị kết quả ra một hàm riêng
 ===================== */
-
 function renderResults(results, keyword) {
     tbody.innerHTML = "";
     lastResult = results;
@@ -55,16 +54,8 @@ function renderResults(results, keyword) {
         });
 
         tr.onclick = () => {
-            let textToCopy = "";
-            let message = "";
-
-            if (currentFile.includes("madbhcdonvi")) {
-                textToCopy = cols[2] || ""; 
-                message = "Đã copy Mã ĐBHC: " + textToCopy;
-            } else {
-                textToCopy = cols[0] || ""; 
-                message = "Đã copy Mã: " + textToCopy;
-            }
+            let textToCopy = cols[0] || ""; 
+            let message = "Đã copy Mã: " + textToCopy;
 
             if (textToCopy) {
                 navigator.clipboard.writeText(textToCopy)
@@ -90,26 +81,20 @@ async function loadFile(file) {
     input.disabled = false;
     input.focus();
 
-    if (file.includes("madbhcdonvi")) {
-        // KHÔNG FETCH DỮ LIỆU Ở ĐÂY NỮA
-        input.placeholder = "Nhập từ khóa và bấm ENTER để tìm...";
-    } else {
-        // Các file nhỏ (.txt) vẫn load bình thường
-        input.placeholder = "Đang nạp dữ liệu...";
-        try {
-            if (fileCache[file]) {
-                rawData = fileCache[file];
-            } else {
-                const res = await fetch("data/" + file);
-                const text = await res.text();
-                rawData = text.split(/\r?\n/).filter(x => x.trim());
-                fileCache[file] = rawData;
-            }
-            input.placeholder = "Nhập từ khóa tìm kiếm...";
-        } catch (err) {
-            input.placeholder = "Lỗi: Không tải được dữ liệu!";
-            console.error(err);
+    input.placeholder = "Đang nạp dữ liệu...";
+    try {
+        if (fileCache[file]) {
+            rawData = fileCache[file];
+        } else {
+            const res = await fetch("data/" + file);
+            const text = await res.text();
+            rawData = text.split(/\r?\n/).filter(x => x.trim());
+            fileCache[file] = rawData;
         }
+        input.placeholder = "Nhập từ khóa tìm kiếm...";
+    } catch (err) {
+        input.placeholder = "Lỗi: Không tải được dữ liệu!";
+        console.error(err);
     }
 }
 
@@ -123,8 +108,6 @@ function buildHeader(file) {
         thead.innerHTML = "<th>Mã</th><th>Phường / Xã</th><th>Tỉnh / Huyện</th>";
     else if (file === "kbnn.txt")
         thead.innerHTML = "<th>Tên Kho bạc</th><th>Mã</th><th>Tỉnh</th>";
-    else if (file.includes("madbhcdonvi")) 
-        thead.innerHTML = "<th>Mã ĐVSDNS</th><th>Tên đơn vị</th><th>Mã ĐBHC</th>";
     else
         thead.innerHTML = "<th>Mã</th><th>Ngân hàng</th>";
 }
@@ -200,111 +183,9 @@ function searchNormal(keyword) {
 }
 
 /* =====================
-   SEARCH ĐVSDNS (TỐI ƯU HÓA JSON)
-===================== */
-function searchDVSDNS(keyword) {
-    const q = normalize(keyword);
-    const keys = q.split(" ").filter(k => k.trim() !== "");
-    const qLower = keyword.trim().toLowerCase();
-    let results = [];
-
-    for (let i = 0; i < rawData.length; i++) {
-        const row = rawData[i];
-        
-        const ma = (row[0] || "").toLowerCase();
-        const maDBHC = (row[2] || "").toLowerCase();
-        const nTen = row[3] || ""; 
-
-        const isMatchAll = keys.every(k => 
-            ma.includes(k) || 
-            nTen.includes(k) || 
-            maDBHC.includes(k)
-        );
-        
-        if (!isMatchAll) continue;
-
-        let score = 0;
-
-        if (ma === qLower) score += 2000;
-        else if (ma.includes(qLower)) score += 900;
-        
-        if (maDBHC === qLower) score += 1500;
-        else if (maDBHC.includes(qLower)) score += 700;
-
-        if (nTen === q) score += 1000;        
-        if (nTen.includes(q)) score += 800;   
-
-        keys.forEach(k => {
-            const paddedN = " " + nTen + " ";
-            const paddedK = " " + k + " ";
-            if (paddedN.includes(paddedK)) score += 50; 
-            else if (nTen.includes(k)) score += 20;      
-        });
-
-        if (score > 0) {
-            const line = `${row[0]}\t${row[1]}\t${row[2]}`;
-            results.push({ line, score });
-        }
-    }
-
-    results.sort((a, b) => b.score - a.score);
-    return results.slice(0, 50);
-}
-
-/* =====================
-   SỰ KIỆN TÌM KIẾM THEO ENTER (CHO FILE LỚN)
-===================== */
-input.addEventListener("keydown", async (e) => {
-    // Chỉ can thiệp khi là tab ĐVSDNS và người dùng bấm Enter
-    if (currentFile.includes("madbhcdonvi") && e.key === "Enter") {
-        const keyword = input.value.trim();
-        if (!keyword) return;
-
-        // Báo hiệu đang xử lý
-        const oldPlaceholder = input.placeholder;
-        input.placeholder = "Đang nạp và tìm kiếm dữ liệu, vui lòng chờ...";
-        input.disabled = true;
-        tbody.innerHTML = "<tr><td colspan='3' style='text-align:center;'>Đang truy vấn dữ liệu lớn...</td></tr>";
-
-        try {
-            // Nạp dữ liệu (nếu chưa có trong cache)
-            if (!fileCache[currentFile]) {
-                const res = await fetch("data/madbhcdonvi.json");
-                fileCache[currentFile] = await res.json();
-            }
-            
-            // Gán dữ liệu cho rawData
-            rawData = fileCache[currentFile];
-
-            // Chạy thuật toán tìm kiếm
-            const results = searchDVSDNS(keyword);
-            
-            // Hiển thị kết quả
-            if (results.length === 0) {
-                tbody.innerHTML = "<tr><td colspan='3' style='text-align:center;'>Không tìm thấy kết quả!</td></tr>";
-            } else {
-                renderResults(results, keyword);
-            }
-
-        } catch (err) {
-            console.error(err);
-            tbody.innerHTML = "<tr><td colspan='3' style='text-align:center;color:red;'>Lỗi tải dữ liệu!</td></tr>";
-        } finally {
-            // Trả lại trạng thái input
-            input.disabled = false;
-            input.placeholder = oldPlaceholder;
-            input.focus();
-        }
-    }
-});
-
-/* =====================
-   SỰ KIỆN TÌM KIẾM REAL-TIME (CHO CÁC FILE NHỎ CÒN LẠI)
+   SỰ KIỆN TÌM KIẾM REAL-TIME 
 ===================== */
 input.addEventListener("input", () => {
-    // Nếu là file lớn, bỏ qua sự kiện input (chờ Enter)
-    if (currentFile.includes("madbhcdonvi")) return;
-
     const keyword = input.value.trim();
     if (!keyword) {
         tbody.innerHTML = "";
