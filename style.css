@@ -117,3 +117,57 @@ mark {
     font-size: 13px;
     text-align: center;
 }
+
+/* =========================================
+   MEDIA QUERIES CHO IPAD / TABLET
+   (Màn hình từ 1024px trở xuống)
+   ========================================= */
+@media screen and (max-width: 1024px) {
+    .container {
+        max-width: 100%; /* Bỏ giới hạn 950px, cho phép full màn hình iPad */
+        padding: 10px;
+    }
+    
+    /* Trên iPad, các nút bấm nên to ra một chút để dễ chạm tay */
+    .tab, #exportBtn, input {
+        padding: 12px;
+        font-size: 15px;
+    }
+}
+
+/* =========================================
+   MEDIA QUERIES CHO ĐIỆN THOẠI DI ĐỘNG
+   (Màn hình từ 767px trở xuống - Bao trùm mọi loại iPhone/Android)
+   ========================================= */
+@media screen and (max-width: 767px) {
+    .tabs {
+        flex-direction: column; /* Xếp dọc các tab */
+        gap: 5px;
+    }
+    
+    .tab {
+        width: 100%;
+    }
+
+    .top-bar {
+        flex-direction: column; /* Xếp dọc ô tìm kiếm và nút xuất */
+    }
+
+    input {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    #exportBtn {
+        width: 100%;
+    }
+
+    .table-wrapper {
+        max-height: calc(100vh - 250px); 
+    }
+
+    th, td {
+        padding: 6px 4px;
+        font-size: 12px;
+    }
+}
