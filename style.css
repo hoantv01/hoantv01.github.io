@@ -9,6 +9,9 @@ body {
     padding: 5px; /* Giữ khoảng cách nhỏ gọn cho popup */
 }
  
+/* =========================================
+   HIỆU ỨNG POPUP NỞ RA TỪ TRÊN XUỐNG
+   ========================================= */
 .container {
     width: 100%; /* Cho phép tự co giãn theo chiều rộng khung chứa (iframe) */
     max-width: 950px; /* Vẫn giữ tối đa 950px nếu mở ở tab riêng biệt */
@@ -17,6 +20,21 @@ body {
     padding: 15px; /* Giảm padding để tiết kiệm diện tích cho popup */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,.1);
+    
+    /* Animation mượt mà */
+    animation: popupSpring 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; 
+    transform-origin: top center;
+}
+
+@keyframes popupSpring {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
 h2 {
@@ -33,6 +51,9 @@ h2 {
     margin-bottom: 10px;
 }
 
+/* =========================================
+   NÚT BẤM & TABS (THÊM HIỆU ỨNG CHUYỂN ĐỘNG)
+   ========================================= */
 .tab {
     padding: 8px 18px;
     border: none;
@@ -41,11 +62,13 @@ h2 {
     border-radius: 6px;
     flex-grow: 1; /* Các nút tab sẽ tự động dàn đều cho đẹp */
     text-align: center;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .tab.active {
     background: #1976d2;
     color: white;
+    box-shadow: 0 4px 10px rgba(25, 118, 210, 0.3); /* Bóng đổ mềm khi active */
 }
 
 .top-bar {
@@ -53,13 +76,6 @@ h2 {
     gap: 10px;
     margin-bottom: 10px;
     flex-wrap: wrap; /* Input và Nút bấm có thể rớt dòng nếu thiếu chỗ */
-}
-
-input {
-    flex: 1;
-    padding: 10px;
-    font-size: 14px; /* Giảm nhẹ size chữ để vừa vặn hơn */
-    min-width: 200px; /* Đảm bảo ô nhập liệu không bị móp méo quá mức */
 }
 
 #exportBtn {
@@ -70,8 +86,43 @@ input {
     border-radius: 6px;
     cursor: pointer;
     white-space: nowrap; /* Đảm bảo chữ trong nút không bị rớt dòng */
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* Hover: Phóng to nhẹ, sáng lên */
+.tab:hover, #exportBtn:hover {
+    transform: scale(1.03);
+    filter: brightness(1.05);
+}
+
+/* Active (Click): Lún xuống tạo cảm giác vật lý */
+.tab:active, #exportBtn:active {
+    transform: scale(0.95);
+    filter: brightness(0.9);
+}
+
+/* =========================================
+   Ô NHẬP LIỆU (INPUT) MƯỢT MÀ
+   ========================================= */
+input {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px; /* Giảm nhẹ size chữ để vừa vặn hơn */
+    min-width: 200px; /* Đảm bảo ô nhập liệu không bị móp méo quá mức */
+    border: 1px solid #ccc;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+input:focus {
+    outline: none;
+    border-color: #1976d2;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2); /* Viền glow mềm mại */
+    transform: scale(1.01); /* Hơi bự ra một xíu khi focus */
+}
+
+/* =========================================
+   BẢNG & KẾT QUẢ TÌM KIẾM
+   ========================================= */
 .table-wrapper {
     /* Đổi sang đơn vị vh (viewport height) để bảng tự động tính toán chiều cao theo màn hình, tránh bị 2 thanh cuộn lồng nhau */
     max-height: calc(100vh - 200px); 
@@ -100,9 +151,28 @@ th, td {
     font-size: 14px;
 }
 
+tbody tr {
+    /* Chuyển màu nền mượt hơn khi hover */
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    
+    /* Animation khi một hàng mới được render/hiện ra */
+    animation: rowFadeIn 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
 tbody tr:hover {
     background: #f3f3f3;
     cursor: pointer;
+}
+
+@keyframes rowFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 mark {
@@ -171,3 +241,4 @@ mark {
         font-size: 12px;
     }
 }
+
