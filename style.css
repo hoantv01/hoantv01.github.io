@@ -1,27 +1,31 @@
+/* Nhúng font Inter từ Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
 * {
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    /* Sử dụng Inter làm font chính, dự phòng bằng font hệ thống */
+    font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+    color: #1e293b; /* Màu chữ xám than dịu mắt */
 }
 
 body {
-    background: #f2f4f7;
-    margin: 0; /* Xóa khoảng trắng thừa viền ngoài */
-    padding: 5px; /* Giữ khoảng cách nhỏ gọn cho popup */
+    background: #f8fafc; /* Nền ngoài cùng xám sáng nhẹ nhàng */
+    margin: 0; 
+    padding: 5px; 
 }
  
 /* =========================================
-   HIỆU ỨNG POPUP NỞ RA TỪ TRÊN XUỐNG
+   CONTAINER & HIỆU ỨNG POPUP
    ========================================= */
 .container {
-    width: 100%; /* Cho phép tự co giãn theo chiều rộng khung chứa (iframe) */
-    max-width: 950px; /* Vẫn giữ tối đa 950px nếu mở ở tab riêng biệt */
+    width: 100%; 
+    max-width: 950px; 
     margin: 0 auto;
-    background: #fff;
-    padding: 15px; /* Giảm padding để tiết kiệm diện tích cho popup */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    background: #ffffff;
+    padding: 15px; 
+    border-radius: 12px; /* Bo góc tròn trịa, hiện đại hơn (12px thay vì 8px) */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Bóng đổ mềm và tỏa rộng hơn */
     
-    /* Animation mượt mà */
     animation: popupSpring 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; 
     transform-origin: top center;
 }
@@ -41,94 +45,108 @@ h2 {
     text-align: center;
     margin-top: 5px;
     margin-bottom: 15px;
-    font-size: 18px; /* Giảm nhẹ size chữ tiêu đề */
-}
-
-.tabs {
-    display: flex;
-    flex-wrap: wrap; /* Cho phép các tab tự động xuống dòng nếu popup quá hẹp */
-    gap: 10px;
-    margin-bottom: 10px;
+    font-size: 18px; 
+    font-weight: 600; /* Tiêu đề in đậm vừa phải */
+    color: #0f172a;
 }
 
 /* =========================================
-   NÚT BẤM & TABS (THÊM HIỆU ỨNG CHUYỂN ĐỘNG)
+   TABS ĐIỀU HƯỚNG
    ========================================= */
+.tabs {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 8px; /* Thu hẹp khoảng cách tab một chút cho gọn */
+    margin-bottom: 12px;
+}
+
 .tab {
     padding: 8px 18px;
     border: none;
-    background: #e0e0e0;
+    background: #f1f5f9; /* Nền xám nhạt, sang trọng */
+    color: #475569; /* Chữ xám nhạt cho tab chưa chọn */
     cursor: pointer;
-    border-radius: 6px;
-    flex-grow: 1; /* Các nút tab sẽ tự động dàn đều cho đẹp */
+    border-radius: 8px;
+    flex-grow: 1; 
     text-align: center;
+    font-weight: 500;
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .tab.active {
-    background: #1976d2;
-    color: white;
-    box-shadow: 0 4px 10px rgba(25, 118, 210, 0.3); /* Bóng đổ mềm khi active */
+    background: #2563eb; /* Xanh dương hiện đại */
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25); 
 }
 
+/* =========================================
+   THANH CÔNG CỤ (TÌM KIẾM & XUẤT)
+   ========================================= */
 .top-bar {
     display: flex;
     gap: 10px;
-    margin-bottom: 10px;
-    flex-wrap: wrap; /* Input và Nút bấm có thể rớt dòng nếu thiếu chỗ */
+    margin-bottom: 12px;
+    flex-wrap: wrap; 
 }
 
 #exportBtn {
     padding: 10px 16px;
     border: none;
-    background: #2e7d32;
+    background: #16a34a; /* Xanh ngọc lục bảo dịu mắt */
     color: white;
-    border-radius: 6px;
+    border-radius: 8px;
+    font-weight: 500;
     cursor: pointer;
-    white-space: nowrap; /* Đảm bảo chữ trong nút không bị rớt dòng */
+    white-space: nowrap; 
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 2px 8px rgba(22, 163, 74, 0.2);
 }
 
-/* Hover: Phóng to nhẹ, sáng lên */
+/* Hiệu ứng Hover / Active */
+.tab:hover:not(.active) {
+    background: #e2e8f0; /* Đổi màu nền nhẹ khi hover tab chưa active */
+    color: #1e293b;
+}
 .tab:hover, #exportBtn:hover {
-    transform: scale(1.03);
-    filter: brightness(1.05);
+    transform: scale(1.02); /* Thu nhỏ độ nở lại một xíu cho tinh tế */
 }
-
-/* Active (Click): Lún xuống tạo cảm giác vật lý */
 .tab:active, #exportBtn:active {
-    transform: scale(0.95);
-    filter: brightness(0.9);
+    transform: scale(0.96);
 }
 
-/* =========================================
-   Ô NHẬP LIỆU (INPUT) MƯỢT MÀ
-   ========================================= */
+/* Ô Nhập liệu */
 input {
     flex: 1;
-    padding: 10px;
-    font-size: 14px; /* Giảm nhẹ size chữ để vừa vặn hơn */
-    min-width: 200px; /* Đảm bảo ô nhập liệu không bị móp méo quá mức */
-    border: 1px solid #ccc;
+    padding: 10px 14px;
+    font-size: 14px; 
+    min-width: 200px; 
+    border: 1px solid #cbd5e1; /* Viền xám sáng */
+    border-radius: 8px;
+    background: #f8fafc;
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+input::placeholder {
+    color: #94a3b8; /* Chữ placeholder mờ vừa phải */
 }
 
 input:focus {
     outline: none;
-    border-color: #1976d2;
-    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2); /* Viền glow mềm mại */
-    transform: scale(1.01); /* Hơi bự ra một xíu khi focus */
+    background: #ffffff;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); 
+    transform: scale(1.01); 
 }
 
 /* =========================================
-   BẢNG & KẾT QUẢ TÌM KIẾM
+   BẢNG HIỂN THỊ DỮ LIỆU
    ========================================= */
 .table-wrapper {
-    /* Đổi sang đơn vị vh (viewport height) để bảng tự động tính toán chiều cao theo màn hình, tránh bị 2 thanh cuộn lồng nhau */
     max-height: calc(100vh - 200px); 
     overflow-y: auto;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #e2e8f0; /* Viền đồng bộ chuẩn */
+    border-radius: 8px;
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.02); /* Bóng trong tạo chiều sâu nhẹ */
 }
 
 table {
@@ -137,30 +155,37 @@ table {
 }
 
 thead {
-    background: #1976d2;
-    color: white;
+    background: #f8fafc; /* Đổi header thành màu xám sáng thay vì xanh đậm */
     position: sticky;
     top: 0;
     z-index: 1;
+    border-bottom: 2px solid #e2e8f0;
 }
 
-th, td {
-    padding: 8px; /* Căn chỉnh lại khoảng cách trong ô */
-    border-bottom: 1px solid #ddd;
+th {
+    padding: 12px 8px; /* Header cần rộng rãi hơn một chút */
+    color: #475569;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase; /* Viết hoa nhẹ header để phân biệt với nội dung */
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 10px 8px; 
+    border-bottom: 1px solid #f1f5f9; /* Viền mỏng, nhạt phân cách dòng */
     text-align: left;
     font-size: 14px;
+    color: #334155;
 }
 
 tbody tr {
-    /* Chuyển màu nền mượt hơn khi hover */
     transition: background-color 0.2s ease, transform 0.2s ease;
-    
-    /* Animation khi một hàng mới được render/hiện ra */
     animation: rowFadeIn 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 tbody tr:hover {
-    background: #f3f3f3;
+    background: #f1f5f9; /* Màu hover nhẹ nhàng */
     cursor: pointer;
 }
 
@@ -175,44 +200,43 @@ tbody tr:hover {
     }
 }
 
+/* =========================================
+   CÁC THÀNH PHẦN PHỤ
+   ========================================= */
 mark {
-    background: #ffe066;
-    padding: 0 2px;
-    border-radius: 2px;
+    background: #fef08a; /* Màu vàng pastel highlight chữ */
+    color: #854d0e;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: 500;
 }
 
 .note {
-    margin-top: 8px;
-    color: #555;
+    margin-top: 12px;
+    color: #64748b;
     font-size: 13px;
     text-align: center;
 }
 
 /* =========================================
-   MEDIA QUERIES CHO IPAD / TABLET
-   (Màn hình từ 1024px trở xuống)
+   MEDIA QUERIES (RESPONSIVE)
    ========================================= */
 @media screen and (max-width: 1024px) {
     .container {
-        max-width: 100%; /* Bỏ giới hạn 950px, cho phép full màn hình iPad */
+        max-width: 100%; 
         padding: 10px;
     }
     
-    /* Trên iPad, các nút bấm nên to ra một chút để dễ chạm tay */
     .tab, #exportBtn, input {
         padding: 12px;
         font-size: 15px;
     }
 }
 
-/* =========================================
-   MEDIA QUERIES CHO ĐIỆN THOẠI DI ĐỘNG
-   (Màn hình từ 767px trở xuống - Bao trùm mọi loại iPhone/Android)
-   ========================================= */
 @media screen and (max-width: 767px) {
     .tabs {
-        flex-direction: column; /* Xếp dọc các tab */
-        gap: 5px;
+        flex-direction: column; 
+        gap: 6px;
     }
     
     .tab {
@@ -220,16 +244,12 @@ mark {
     }
 
     .top-bar {
-        flex-direction: column; /* Xếp dọc ô tìm kiếm và nút xuất */
+        flex-direction: column; 
     }
 
-    input {
+    input, #exportBtn {
         width: 100%;
-        margin-bottom: 5px;
-    }
-
-    #exportBtn {
-        width: 100%;
+        margin-bottom: 6px;
     }
 
     .table-wrapper {
@@ -237,8 +257,7 @@ mark {
     }
 
     th, td {
-        padding: 6px 4px;
-        font-size: 12px;
+        padding: 8px 6px;
+        font-size: 13px;
     }
 }
-
