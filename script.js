@@ -118,7 +118,7 @@ function renderResults(results, keyword) {
 
             if (textToCopy) {
                 navigator.clipboard.writeText(textToCopy)
-                    .then(() => alert(message))
+                    .then(() => showToast(message))
                     .catch(err => console.error("Lỗi copy: ", err));
             }
         };
@@ -310,3 +310,51 @@ tabs.forEach(tab => {
         loadFile(currentFile);
     };
 });
+
+/* =====================
+   CUSTOM TOAST NOTIFICATION (Thay thế alert)
+===================== */
+function showToast(message) {
+    let toast = document.getElementById("custom-toast");
+    
+    // Nếu chưa có thẻ toast trong HTML thì tự động tạo
+    if (!toast) {
+        toast = document.createElement("div");
+        toast.id = "custom-toast";
+        document.body.appendChild(toast);
+        
+        // CSS trực tiếp cho thông báo
+        toast.style.cssText = `
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #323232;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 12px 24px;
+            position: fixed;
+            z-index: 9999;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            font-family: sans-serif;
+            font-size: 14px;
+            transition: opacity 0.3s, bottom 0.3s;
+            opacity: 0;
+        `;
+    }
+
+    // Hiển thị thông báo
+    toast.innerText = message;
+    toast.style.visibility = "visible";
+    toast.style.opacity = "1";
+    toast.style.bottom = "50px"; // Hiệu ứng trượt lên nhẹ
+
+    // Tự động ẩn sau 2 giây
+    setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.bottom = "30px";
+        setTimeout(() => { toast.style.visibility = "hidden"; }, 300);
+    }, 2000);
+}
