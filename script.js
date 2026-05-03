@@ -113,7 +113,8 @@ function renderResults(results, keyword) {
         });
 
         tr.onclick = () => {
-            let textToCopy = cols[0] || ""; 
+            // Lấy cột 2 (index 1) nếu là file kbnn.txt, ngược lại lấy cột 1 (index 0)
+            let textToCopy = (currentFile === "kbnn.txt") ? (cols[1] || "") : (cols[0] || ""); 
             let message = "Đã copy Mã: " + textToCopy;
 
             if (textToCopy) {
